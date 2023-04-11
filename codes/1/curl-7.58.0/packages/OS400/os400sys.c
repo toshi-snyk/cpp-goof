@@ -1126,7 +1126,8 @@ Curl_ldap_get_dn_a(void * ld, LDAPMessage * entry)
      ldap_memfree() and ldap_memalloc() does not exist. The solution is to
      overwrite the EBCDIC buffer with ASCII to return it. */
 
-  strcpy(cp, cp2);
+  //strcpy(cp, cp2);
+  strncpy(cp, cp2, i);
   free(cp2);
   return cp;
 }
